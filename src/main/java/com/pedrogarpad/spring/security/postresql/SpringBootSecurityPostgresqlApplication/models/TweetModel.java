@@ -16,6 +16,9 @@ public class TweetModel {
     @NotBlank
     @Size(max = 140)
     private String tweet;
+    
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "posted_by")
@@ -24,8 +27,9 @@ public class TweetModel {
 
     public TweetModel() {}
 
-    public TweetModel(String tweet) {
+    public TweetModel(String tweet, String imageUrl) {
         this.tweet = tweet;
+        this.imageUrl = imageUrl;
     }
 
     // getters and setters
@@ -52,5 +56,12 @@ public class TweetModel {
     public void setPostedBy(User postedBy) {
         this.postedBy = postedBy;
     }
-
+    
+    public String getImageUrl() {
+        return imageUrl;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+    
 }

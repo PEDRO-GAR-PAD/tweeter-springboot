@@ -45,7 +45,7 @@ public TweetModel createTweet(@Valid @RequestBody TweetModel tweet) {
     System.out.println("user");
     System.out.println(user);
 
-    TweetModel myTweet = new TweetModel(tweet.getTweet());
+    TweetModel myTweet = new TweetModel(tweet.getTweet(), tweet.getImageUrl());
     myTweet.setPostedBy(user);
 
     // Guarda y usa el objeto devuelto por save()
